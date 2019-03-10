@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h1>
+            毕业生信息    
+        </h1>
+        <fieldset style="width: 400px; height: 120px;">
+            <legend style="color:red">
+                学生信息
+            </legend>
+            姓&nbsp名&nbsp<input type="text" name="name1" placeholder="请输入姓名" required autofocus="autofocus"><span style="color: red"> *</span>
+            <br>
+            学&nbsp号&nbsp<input type="number" name="name2" placeholder="请输入学号" required ><span style="color: red"> *</span>
+            <br>
+            手&nbsp机&nbsp<input type="tel" name="name3" placeholder="请输入手机号" required><span style="color: red"> *</span>
+            <br>
+            邮&nbsp箱&nbsp<input type="email" name="name4" placeholder="请输入邮箱地址" required><span style="color: red"> *</span>
+        </fieldset>
+        <fieldset style="width: 400px; height: 100px;margin-top: 20px">
+                <legend style="color:red">
+                录取情况
+            </legend>
+            录取学校&nbsp<input type="text" name="name5" required list="school">
+            <datalist id="school">
+                <option>河北师范大学</option>
+                <option>河北科技大学</option>
+                <option>石家庄铁道大学</option>
+                <option>河北医科大学</option>
+                <option>河北工业大学</option> 
+            </datalist>
+            <br>
+            入学成绩&nbsp<input type="number" name="name6" required>
+            <br>
+            入学时间&nbsp<input type="date" name="name7" required>
+        </fieldset>
+        <input type="submit" style="margin-top:20px">
+    </form>
+</body>
+</html>
