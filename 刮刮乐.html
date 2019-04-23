@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+            z-index: 1;
+        }
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        div{
+            margin-top: 10px;
+            margin-left: 10px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+            color:orangered;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="guaguale" style="width: 200px; height: 100px;">
+    </div>
+    <canvas id="canvas" width="200" height="100">
+	
+    </canvas>
+</body>
+<script>
+    window.onload=function(){
+        //设置随机奖项
+        var gua=document.getElementById("guaguale");
+        var a=["一等奖","二等奖","三等奖","谢谢惠顾"];
+        gua.innerHTML=a[(Math.floor(Math.random()*4))];
+        
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d"); 
+        //设置灰色部分
+        context.beginPath();      
+        context.fillStyle="#CCC";
+        context.rect(0,0,200,100);
+        context.fill();
+        context.closePath();
+        canvas.onmousedown=function(){
+            var e=event || window.event;
+            var x = e.clientX;
+            var y = e.clientY;
+            console.log(x,y);
+            context.globalCompositeOperation = "destination-out";
+            context.beginPath();
+            context.fillStyle="write";
+            context.arc(x-5,y-5,10,0,2*Math.PI);
+            context.fill();
+            context.closePath();
+            canvas.onmousemove=function(){
+                //刮层部分
+                var e=event || window.event;
+                var x = e.clientX;
+                var y = e.clientY;
+                console.log(x,y);
+                context.globalCompositeOperation = "destination-out";
+                context.beginPath();
+                context.fillStyle="write";
+                context.arc(x-5,y-5,10,0,2*Math.PI);
+                context.fill();
+                context.closePath(); 
+                canvas.onmouseup=function(){
+                    canvas.onmousemove=function(){
+                        
+                    }
+                } 
+                judge();
+            }
+        }
+        //计算挂掉部分
+        function judge(){
+            var data=context.getImageData(0,0,200,100).data;
+            var length=data.length;
+            var num=0;
+            for (var i=3;i<length;i+=4) {
+                if(data[i]===0){
+                    num++;
+                }
+            }
+            if(num*4/length>0.85){
+                alert("刮奖结束！");
+                context.fillRect(0,0,200,100);
+            }
+        }   
+    }
+</script>
+</html>
