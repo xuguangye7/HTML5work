@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            margin:10px;
+            padding:10px;   
+        }
+        .container{
+            width:400px;
+            border:3px solid rgb(172, 141, 141); 
+            height: 500px;
+            position: relative;
+        }
+        .img{
+            overflow: hidden;
+            height: 300px;
+            background: black;
+            transition: height 0.5s;   
+        }
+        .img img{
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.5s,transform 0.5s; 
+        }
+        .container:hover .img{
+            height: 200px;
+        }
+        .container:hover .img img{
+            opacity: 0.8;
+            transform: scale(1.2);
+        }
+        .yue{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: coral;
+            color: #fff;
+            font-size: 13px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            word-break: keep-all;
+            text-align: center; 
+            font-weight: bold;
+        }
+        .zhong{
+            position: relative;
+        }
+        .tupian{
+            top:-25px; 
+            position: absolute;
+            height: 25px;
+            width: 50px;
+            line-height: 25px;
+            text-align: center;
+            background-color: coral;
+        }
+        h2{
+            padding-left: 20px;
+            padding-top: 30px;
+        }
+        .AAA{
+            color: coral;
+            padding-left: 20px;
+            font-size: 18px;
+            padding-top: 10px;
+        }
+        .p{
+            font-size: 15px;
+            line-height: 23px;
+            text-align: justify;
+            color: gray;
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s,transform 0.5s;
+        }
+        .container:hover .p{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bottom{
+            bottom: 30px;
+            font-size: 12px;
+            position: absolute;
+            color: rgb(201, 180, 180);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img"><img src="zhanqiao.jpg" width="400" height="300" alt="web3canvas"></div>
+        <div class="yue">15 五月</div>
+        <div class="zhong">
+            <div class="tupian">照片</div>
+            <h2>青岛栈桥</h2>
+            <div class="AAA">国家AAAA级旅游景区</div>
+            <p class="p">青岛栈桥是青岛海缤纷景区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人如织的青岛中山路南段，桥身从海岸探入如弯月般的青岛湾深处。桥身供游人参观并在此停靠旅游船，由此乘船可看海上青岛。</p>
+        </div>
+        <div class="bottom">
+            <div style="float:left;padding-left: 23px;">10分钟前</div>
+            <div style="float: left;padding-left: 10px;">123评论</div>
+        </div>
+    </div>
+</body>
+</html>
